@@ -90,64 +90,12 @@ Read correct lesson meta from esciencecenter-digital-skills/workshop-metadata
 Check DC curriculum
 {% endcomment %}
 
-{% comment %}
-EVENTBRITE
-
-This block includes the Eventbrite registration widget if
-'eventbrite' has been set in the header.  You can delete it if you
-are not using Eventbrite, or leave it in, since it will not be
-displayed if the 'eventbrite' field in the header is not set.
-{% endcomment %}
-{% if eventbrite %}
-<strong>Some adblockers block the registration window. If you do not see the
-  registration box below, please check your adblocker settings.</strong>
-<iframe
-  src="https://www.eventbrite.com/tickets-external?eid={{eventbrite}}&ref=etckt"
-  frameborder="0"
-  width="100%"
-  height="400px"
-  scrolling="auto">
-</iframe>
-{% endif %}
-
-
 <h2 id="general">General Information</h2>
 
-{% comment %}
-INTRODUCTION
+This workshop introduces Python programming for researchers. The workshop builds on learners' existing knowledge to enable them to quickly apply skills learned to their own research. You will learn the basics of Python, how to use control statements and functions, and how to write clear and reusable code. The largest part of the workshop focuses on data: data import, exploratory data analysis, and visualization. We will make use of popular Python packages such as Pandas and Matplotlib.
 
-Edit the general explanatory paragraph below if you want to change
-the pitch.
-{% endcomment %}
-{% if info.carpentry == "swc" %}
-{% include swc/intro.html %}
-{% elsif info.carpentry == "dc" %}
-{% include dc/intro.html %}
-{% elsif info.carpentry == "lc" %}
-{% include lc/intro.html %}
-{% elsif info.carpentry == "ds" %}
-{% include ds/intro.md %}
-{% remote_include {{lesson_meta}}/description.md %}
-{% endif %}
+This workshop uses a tabular interview dataset from the SAFI Teaching Database, we use a single dataset throughout the workshop to model the data management and analysis workflow that a researcher would use.
 
-{% comment %}
-AUDIENCE
-
-Explain who your audience is.  (In particular, tell readers if the
-workshop is only open to people from a particular institution.
-{% endcomment %}
-{% if info.carpentry == "swc" %}
-{% include swc/who.html %}
-{% elsif info.carpentry == "dc" %}
-{% include dc/who.html %}
-{% elsif info.carpentry == "lc" %}
-{% include lc/who.html %}
-{% elsif info.carpentry == "ds" %}
-<div style="display: flex"><div>
-     <strong>Who:&nbsp;</strong>
-     </div>
-     <div markdown=1>{% remote_include {{lesson_meta}}/who.md %}</div></div>
-{% endif %}
 
 {% comment %}
 LOCATION
@@ -382,7 +330,7 @@ of code below the Schedule `<h2>` header below with
 
 {% if info.carpentry == "ds" %}
 <h2 id="syllabus">Syllabus</h2>
-{% remote_include {{lesson_meta}}/syllabus.md %}
+{% remote_include {{lesson_meta}}/syllabus-python-only.md %}
 {% endif %}
 
 <h2 id="schedule">Schedule</h2>
@@ -394,7 +342,7 @@ of code below the Schedule `<h2>` header below with
 {% elsif info.carpentry == "lc" %}
 {% include lc/schedule.html %}
 {% elsif info.carpentry == "ds" %}
-{% remote_include {{lesson_meta}}/schedule.md %}
+{% remote_include {{lesson_meta}}/schedule-python-only.md %}
 {% elsif info.carpentry == "pilot" %}
 The lesson taught in this workshop is being piloted and a precise schedule is yet to be established. The workshop will include regular breaks. If you would like to know the timing of these breaks in advance, please [contact the workshop organisers](#contact). For a list of lesson sections and estimated timings, [visit the lesson homepage]({{ site.lesson_site }}).
 {% comment %}
@@ -448,30 +396,12 @@ during the workshop.
 {% endcomment %}
 
 <h3 id="software-setup">Software setup</h3>
+In order to participate in this workshop, it is important that you have Python and a few Python packages installed.
+Please follow [the Python installation instruction on this page](https://datacarpentry.org/python-socialsci/index.html#setup-instructions-for-python).
 
-{% if info.carpentry == "swc" %}
-{% include swc/setup.html %}
-{% elsif info.carpentry == "dc" %}
-{% include dc/setup.html %}
-{% elsif info.carpentry == "lc" %}
-{% include lc/setup.html %}
-{% elsif info.carpentry == "ds" %}
-{% capture content %}
-{% remote_include {{lesson_meta}}/setup.md %}
-{% endcapture %}
-{% if content contains "/setup.md" %}
-  {% capture setup %}
-  {% remote_include https://raw.githubusercontent.com/{{content | strip}} %}
-  {% endcapture %}
-  {{ setup | split: "---" | last}}
-{% else %}
-  {{ content }}
-{% endif %}
-{% elsif info.carpentry == "pilot" %}
-Please check the "Setup" page of
-[the lesson site]({{ site.lesson_site }}) for instructions to follow
-to obtain the software and data you will need to follow the lesson.
-{% endif %}
+You don't have to download the data yet. We will do that during the course.
+
+Send us an email at training@esciencecenter.nl if you need help setting up your system for the course!
 
 {% comment %}
 For online workshops, the section below provides:
