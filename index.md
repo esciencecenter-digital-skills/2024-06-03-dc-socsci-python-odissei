@@ -397,9 +397,10 @@ during the workshop.
 
 <h3 id="software-setup">Software setup</h3>
 In order to participate in this workshop, it is important that you have Python and a few Python packages installed.
-Please follow [the Python installation instruction on this page](https://datacarpentry.org/python-socialsci/index.html#setup-instructions-for-python).
+Therefore we install Anaconda, which already includes the Python packages that we need and allows managing installed packages in an intuitive way.
+Please follow [the Python installation instruction on this page](https://carpentries.github.io/workshop-template/install_instructions/#python-1).
 
-You don't have to download the data yet. We will do that during the course.
+**You don't have to download the data yet.** We will do that during the course.
 
 Send us an email at training@esciencecenter.nl if you need help setting up your system for the course!
 
